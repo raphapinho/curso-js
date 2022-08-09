@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vamos contar</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header>
+        <h1>
+            Vamos contar
+        </h1>
+        
+    </header>
+
+    <section>
+        
+        <div>inicio: <input type="number" id="inicio"></div>
+        <div>fim: <input type="number" id="fim"></div>
+        <div>passo: <input type="number" id="passo"></div>
+        <input type="button" value="verificar" onclick="verificar()">
+        <div id="res"></div>
+    </section>
+
+        <script>
+            function verificar(){
+                var ini = document.getElementById("inicio")
+                var fim = document.getElementById("fim")
+                var passo = document.getElementById("passo")
+                
+                var res = document.getElementById("res")
+
+                if(ini.value.length == 0 || fim.value.length == 0 || passo.value.length == 0){
+                    window.alert("[EERO] os valores não podem ser nulos")
+                } else {
+                    i = Number(ini.value)
+                    f = Number(fim.value)
+                    p = Number(passo.value)
+
+                    if(p <= 0){
+                        window.alert("passo invalidao")
+                        
+                    }
+
+                    if(i < f){
+                        //contagem progressiva
+                        for(var c = i;c <= f; c += p){
+                            res.innerHTML += `${c} `
+                        }
+                    } else{
+                        //contagem regressiva
+                        for(var c = i; c >= f; c -= p){
+                            res.innerHTML += ` ${c} `
+                        }
+                    }
+                }
+            }
+        </script>
+    </section>
+
+    <footer>
+        @raphapinho7
+    </footer>
+
+    <script>
+    
+        
+    </script>
+</body>
+</html>

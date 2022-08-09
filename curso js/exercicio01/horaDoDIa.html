@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hora do dia</title>
+    <style>
+        body{
+            background: rgb(46, 152, 190);
+        }
+        h1{
+            font-style:normal;
+            
+        }
+        header{
+            color: aliceblue;
+            text-align: center;
+        }
+        section{
+            background-color: aliceblue;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.748);
+        }
+        div#hora{
+            text-align: center;
+        }
+        div#foto{
+            text-align: center;
+        }
+        footer{
+            padding-top: 30px;
+            text-align: center;
+            color: aliceblue;
+            font-style: italic;
+        }
+        
+    
+        
+    </style>
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>Hora do dia</h1>
+    </header>
+
+    <section id="fundo">
+        <div id="hora">
+            a hora vai aqui
+        </div>
+        <div id="foto" >
+            <img src="manhas.png" alt="noite" id="imgn">
+        </div>
+    </section>
+    <footer>@raphapinho7@gmail.com</footer>
+    <script>
+        function carregar(){
+        var agora = new Date()
+        var tempo = agora.getHours()
+        
+        var hora = window.document.getElementById("hora")
+        var imgn = window.document.getElementById("imgn")
+
+        var fundo = document.getElementById("fundo")
+
+        hora.innerText = `Agora são ${tempo} horas`
+
+        if( tempo <12){
+            imgn.src = "manhas.png"
+            fundo.style.background = "#2a3c22"
+        } else if( tempo <18) {
+            imgn.src = "tardes.png"
+            fundo.style.background = "#ffdb0e"
+        } else{
+            imgn.src = "noites.png"
+            fundo.style.background = "#131418"
+        }
+        }
+    </script>
+    
+</body>
+</html>

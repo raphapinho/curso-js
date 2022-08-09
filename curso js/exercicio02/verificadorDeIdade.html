@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verificador de idade</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header>
+        <h1>
+            verificador de idade
+        </h1>
+        
+    </header>
+
+    <section>
+        
+        <div>ano de nascimento: <input type="number" name="ano" id="ano"></div>
+        <p>Sexo:</p>
+        <p>
+            <input type="radio" id="sexo-m" name="sexo" value="Masculino" checked>
+            <label for="sexo-m">Masculino</label><br>
+            <input type="radio" id="sexo-f" name="sexo" value="Feminino">
+            <label for="sexo-f">Feminio</label>
+        </p>
+        <div><input type="button" value="verificar" onclick="verificar()"></div>
+        <div id="foto">
+        <img src="" alt="" id="imgn">
+        </div>
+        <div id="res">
+            preencha os dados para ve o resultado!
+        </div>
+    </section>
+
+    <footer>
+        @raphapinho7
+    </footer>
+
+    <script>
+    
+        function verificar(){
+            var data = new Date()
+            var ano = data.getFullYear()
+
+            var y = window.document.getElementById("ano")
+            var sexo = window.document.getElementsByName("sexo")
+            
+            var imgn = document.getElementById("imgn")
+            var res = document.getElementById("res")
+            if(y.value.length == 0 || y.value > ano){
+                window.alert("[ERRO] verifique os dados e tente novamente")
+            } else {
+                var idade = ano - Number(y.value)
+                var genero = ""
+                if (sexo[0].checked){
+                    genero = "homem"
+                } else if (sexo[1].checked){
+                    genero = "mulher"
+                }
+                if(idade < 18 && genero == "homem"){
+                        imgn.src = "menino.png"
+                        res.innerText = `você é ${genero} tem e ${idade} de idade`
+                } else if (idade < 65 && genero == "homem"){
+                        imgn.src = "homem.png"
+                        res.innerText = `você é ${genero} e tem ${idade} de idade`
+                } else if (idade < 100 && genero == "homem"){
+                        imgn.src = "idoso.png"
+                        res.innerText = `você é ${genero} e tem ${idade} de idade`
+                } else if (idade < 18 && genero == "mulher"){
+                        imgn.src = "menina.png"
+                        res.innerText = `você tem é ${genero} tem e ${idade} de idade`
+                } else if (idade < 65 && genero == "mulher"){
+                        imgn.src = "mulher.png"
+                        res.innerText = `você tem é ${genero} tem e ${idade} de idade`
+                } else if (idade < 100 && genero == "mulher"){
+                        imgn.src = "idosa.png"
+                        res.innerText = `você tem é ${genero} tem e ${idade} de idade`
+                }
+            }
+        }
+    </script>
+</body>
+</html>
